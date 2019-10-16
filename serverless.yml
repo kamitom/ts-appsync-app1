@@ -1,0 +1,38 @@
+service:
+  name: ts-appsync-app1
+#app: your-app-name
+#tenant: your-tenant-name
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+  - serverless-appsync-plugin
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  region: ${opt:region, self:provider.region}
+  appSync:
+    name: ${self:custom.stage}-ts-appsync-app1
+    authenticationType: API_KEY
+    mappingTemplates:
+      - dataSource: Me
+        type: Query
+        field: me
+        request: 'me-request.vtl'
+        response: 'me-response.vtl'
+
+    dataSources:
+      - type: AWS_LAMBDA
+        name: Me
+        config:
+          functionName: hellofunc
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: beta
+  region: ap-northeast-1
+
+functions:
+  hellofunc:
+    handler: functions/handler.hellome

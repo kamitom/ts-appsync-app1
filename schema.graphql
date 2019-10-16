@@ -1,0 +1,12 @@
+schema {
+  query: Query
+}
+
+interface User {
+  id: ID!
+  name: String!
+}
+
+type Query @aws_api_key {
+  me: User
+}

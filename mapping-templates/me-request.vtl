@@ -1,0 +1,12 @@
+#set( $payload = {
+"field": "me",
+    "userId": $ctx.identity.sub,
+    "username": $ctx.identity.username,
+    "args": $ctx.args
+} )
+
+{
+    "version" : "2017-02-28",
+    "operation": "Invoke",
+    "payload": $util.toJson($payload)
+}
