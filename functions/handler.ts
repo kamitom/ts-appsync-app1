@@ -12,7 +12,6 @@ type MeResult = {
   name: string;
   email?: string;
   birthday?: string;
-  __typename: string;
 };
 
 
@@ -25,14 +24,15 @@ export const hellome: Handler<MeEvent, MeResult> = async (event, _context) => {
   //   }, null, 2),
   // };
 
+  console.log('Event: ', JSON.stringify(event, null, 2))
+
   const { userId, username } = event;
 
   return {
     id: '007',
     name: 'tom jr',
     email: 'tom@pm.me',
-    birthday: '83.5.23',
-    __typename: userId + username
+    birthday: userId + username
   }
 
 }
