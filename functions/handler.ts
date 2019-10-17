@@ -25,14 +25,17 @@ export const hellome: Handler<MeEvent, MeResult> = async (event, _context) => {
   // };
 
   console.log('Event: ', JSON.stringify(event, null, 2))
+  console.log('_context: ', JSON.stringify(_context, null, 2))
 
   const { userId, username } = event;
 
+  
+
   return {
-    id: '007',
-    name: 'tom jr',
-    email: 'tom@pm.me',
-    birthday: userId + username
+    id: userId,
+    name: username,
+    // email: userId + username
+    // birthday: userId + username
   }
 
 }

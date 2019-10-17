@@ -1,7 +1,15 @@
+
+#set( $inputRoot = $input.json('$') )
+
+#set( $vuserId = "Velocity ID" )
+#set( $vuserName = "Velocity name" )
+
+
 #set( $payload = {
     "field": "me",
-    "userId": $ctx.identity.sub,
-    "username": $ctx.identity.username
+    "userId": $vuserId,
+    "username": $vuserName,
+    "ctxLook": $ctx
 } )
 
 {

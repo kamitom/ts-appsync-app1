@@ -5,6 +5,8 @@ schema {
 type User {
   id: ID!
   name: String!
+  email: String
+  birthday: String
 }
 
 type Query @aws_api_key {
