@@ -1,6 +1,6 @@
 import { Handler } from 'aws-lambda';
 import 'source-map-support/register';
-
+import * as faker from 'faker';
 
 type MeEvent = {
   userId: string;
@@ -27,9 +27,10 @@ export const hellome: Handler<MeEvent, MeResult> = async (event, _context) => {
   console.log('Event: ', JSON.stringify(event, null, 2))
   console.log('_context: ', JSON.stringify(_context, null, 2))
 
-  const { userId, username } = event;
+  let { userId, username } = event;
 
-  
+  username = faker.name.findName();
+  userId = faker.random.uuid();
 
   return {
     id: userId,
