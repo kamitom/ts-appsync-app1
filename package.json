@@ -1,7 +1,7 @@
 {
   "name": "ts-appsync-app1",
   "version": "1.0.0",
-  "description": "Serverless webpack example using Typescript",
+  "description": "Serverless webpack example using Typescript: appsync test",
   "main": "handler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

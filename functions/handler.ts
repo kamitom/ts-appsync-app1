@@ -1,6 +1,7 @@
 import { Handler } from 'aws-lambda';
 import 'source-map-support/register';
-import * as faker from 'faker';
+// import * as faker from 'faker';
+import faker from 'faker';
 
 type MeEvent = {
   userId: string;
